@@ -2,10 +2,16 @@
 #define TERMINAL_H
 
 #include <unistd.h>
+#include <sstream>
+#include <vector>
 
 #include "Parser.h"
+#include "Executor.h"
 
 using std::string;
+using std::cout;
+using std::endl;
+using std::vector;
 
 const string currentDateTime()
 {
@@ -55,10 +61,25 @@ public :
         while(true)
         {
             try {
-                std::cout << "[" << currentDateTime() << "] " << getUserName() <<"@"<< getHostName() << " " << getCurrentDir() <<">" ;
+                std::cout << "[" << currentDateTime() << "] " << getUserName() <<"@"<< getHostName() << " " << getCurrentDir() <<"> " ;
                 std::getline(std::cin, input);
-                Parser parser;
-                parser.parse(input);
+//                Parser parser;
+//                parser.parse(input);
+
+                string word;
+                std::istringstream iss(input, std::istringstream::in);
+
+                Command cmd;
+
+                iss >> cmd.app;
+
+                while( iss >> word )
+                {
+                    cmd.params.push_back(word);
+                }
+
+                Executor executor;
+                executor.execute(cmd);
             } catch(std::exception &e) {
                 std::cout << "Nie rozpoznano polecenia." << std::endl;
                 break; //remove

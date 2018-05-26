@@ -6,13 +6,13 @@
 
 int main()
 {
-    const char *homedir;
-
-    if ((homedir = getenv("HOME")) == NULL) {
-        homedir = getpwuid(getuid())->pw_dir;
-    }
-
-    chdir(homedir);
+//    const char *homedir;
+//
+//    if ((homedir = getenv("HOME")) == NULL) {
+//        homedir = getpwuid(getuid())->pw_dir;
+//    }
+//
+//    chdir(homedir);
     Terminal::getInstance().start();
     return 0;
 }
