@@ -47,12 +47,12 @@ public :
     }
     void start()
     {
-        setUser();
-        setDir();
         Parser parser;
         while(true)
         {
             try {
+                setUser();
+                setDir();
                 std::cout << "[" << currentDateTime() << "]" << user <<"@ubuntu" << dir <<">" ;
                 std::getline(std::cin,input);
                 parser.parse(input);
