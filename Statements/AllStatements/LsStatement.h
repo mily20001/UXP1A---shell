@@ -1,7 +1,7 @@
 #ifndef LSSTATEMENT_H
 #define LSSTATEMENT_H
 
-#include "Statement.h"
+#include "../Statement.h"
 
 class LsStatement : public Statement
 {

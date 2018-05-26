@@ -1,7 +1,7 @@
 #ifndef EXPORTSTATEMENT_H
 #define EXPORTSTATEMENT_H
 
-#include "Statement.h"
+#include "../Statement.h"
 
 class ExportStatement : public Statement
 {

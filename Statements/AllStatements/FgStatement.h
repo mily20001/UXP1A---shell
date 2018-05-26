@@ -1,7 +1,7 @@
 #ifndef FGSTATEMENT_H
 #define FGSTATEMENT_H
 
-#include "Statement.h"
+#include "../Statement.h"
 
 class FgStatement : public Statement
 {

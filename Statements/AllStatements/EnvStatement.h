@@ -1,7 +1,7 @@
 #ifndef ENVSTATEMENT_H
 #define ENVSTATEMENT_H
 
-#include "Statement.h"
+#include "../Statement.h"
 
 class EnvStatement : public Statement
 {

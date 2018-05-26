@@ -1,7 +1,7 @@
 #ifndef UNTITLED1_PWDSTATEMENT_H
 #define UNTITLED1_PWDSTATEMENT_H
 
-#include "Statement.h"
+#include "../Statement.h"
 
 class PwdStatement : public Statement
 {

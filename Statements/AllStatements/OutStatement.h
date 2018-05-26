@@ -1,7 +1,7 @@
 #ifndef UNTITLED1_OUTSTATEMENT_H
 #define UNTITLED1_OUTSTATEMENT_H
 
-#include "Statement.h"
+#include "../Statement.h"
 
 class OutStatement : public Statement
 {

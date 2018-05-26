@@ -1,7 +1,7 @@
 #ifndef EXITSTATEMENT_H
 #define EXITSTATEMENT_H
 
-#include "Statement.h"
+#include "../Statement.h"
 
 class ExitStatement : public Statement
 {

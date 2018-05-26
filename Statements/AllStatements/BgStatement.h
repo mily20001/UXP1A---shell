@@ -1,7 +1,7 @@
 #ifndef BGSTATEMENT_H
 #define BGSTATEMENT_H
 
-#include "Statement.h"
+#include "../Statement.h"
 
 class BgStatement : public Statement
 {

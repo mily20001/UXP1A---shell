@@ -14,12 +14,37 @@
  *
  * W planach mam jeszcze dopisanie wątku, który będzie obsługiwał klawiaturę (np. strzałki w górę i w dół, ctrl+C).
  *
- * Muszę też w funkcjach setUser() i setDir() dopisać wczytywanie jakaś funkcją typu gethostname().
- *
  */
+
+#include <unistd.h>
 
 #include "Parser.h"
 
+using std::string;
+
+const string getUserName() {
+    return string(getlogin());
+}
+
+const string getHostName() {
+    char hostname[64];
+    if(gethostname(hostname, 63) != -1) {
+        hostname[63] = 0;
+        return string(hostname);
+    }
+
+    return "unknown";
+}
+
+const string getCurrentDir() {
+    char path[300];
+    if(getcwd(path, 299) != NULL) {
+        path[299] = 0;
+        return string(path);
+    }
+
+    return "error"; // xD
+}
 class Terminal
 {
 public :
@@ -28,22 +53,15 @@ public :
         static Terminal instance;
         return instance;
     }
-    const std::string currentDateTime()
+    const string currentDateTime()
     {
-        time_t now = time(nullptr);
-        struct tm tstruct;
-        char buf[80];
+        time_t     now = time(0);
+        struct tm  tstruct;
+        char       buf[10];
         tstruct = *localtime(&now);
-        strftime(buf, sizeof(buf), "%Y-%m-%d.%X", &tstruct);
-        return buf;
-    }
-    void setUser()
-    {
-        user = "dominik";
-    }
-    void setDir()
-    {
-        dir = "/home";
+        strftime(buf, 10, "%X", &tstruct);
+
+        return string(buf);
     }
     void start()
     {
@@ -51,9 +69,7 @@ public :
         while(true)
         {
             try {
-                setUser();
-                setDir();
-                std::cout << "[" << currentDateTime() << "]" << user <<"@ubuntu" << dir <<">" ;
+                std::cout << "[" << currentDateTime() << "] " << getUserName() <<"@"<< getHostName() << " " << getCurrentDir() <<">" ;
                 std::getline(std::cin,input);
                 parser.parse(input);
                 parser.execute();
@@ -76,8 +92,6 @@ private:
     Terminal& operator=(Terminal const&) {};
     static Terminal* instance;
 
-    std::string user;
-    std::string dir;
     std::string input;
 
 };

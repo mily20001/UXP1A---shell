@@ -43,17 +43,19 @@
  *
  */
 
-#include "Statement.h"
-#include "CdStatement.h"
-#include "LsStatement.h"
-#include "PwdStatement.h"
-#include "EnvStatement.h"
-#include "ExeStatement.h"
-#include "FgStatement.h"
-#include "OutStatement.h"
-#include "BgStatement.h"
-#include "ExitStatement.h"
-#include "ExportStatement.h"
+#include "Statements/Statement.h"
+#include "Statements/AllStatements/CdStatement.h"
+#include "Statements/AllStatements/LsStatement.h"
+#include "Statements/AllStatements/PwdStatement.h"
+#include "Statements/AllStatements/EnvStatement.h"
+#include "Statements/AllStatements/ExeStatement.h"
+#include "Statements/AllStatements/FgStatement.h"
+#include "Statements/AllStatements/OutStatement.h"
+#include "Statements/AllStatements/BgStatement.h"
+#include "Statements/AllStatements/ExitStatement.h"
+#include "Statements/AllStatements/ExportStatement.h"
+
+#include "Exception.h"
 
 const int MAXIDENTSIZE = 100;
 const int MAXLINESIZE = 500;

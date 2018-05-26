@@ -52,7 +52,7 @@
  *
  */
 
-#include "Exception.h"
+#include "../Exception.h"
 
 enum SymType { cdsy, lssy, exportsy, pwdsy, exitsy, fgsy, bgsy, outsy, envsy, exesy, identsy, EOLsy, STARTsy, othersy };
 
